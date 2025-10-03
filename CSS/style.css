@@ -3,6 +3,11 @@
   --clr-light: hsl(225, 100%, 81%);
   --clr-slate: hsl(225, 84%, 24%);
   --clr-primary: hsl(227, 86%, 17%);
+  --clr-grey: rgba(21, 21, 21, 0.689);
+}
+
+html{
+    scroll-behavior: smooth;
 }
 
 a{ 
@@ -14,7 +19,18 @@ body{
   margin-top:80px;
   background:var(--clr-dark);
   color:var(--clr-light);
+  position: relative;
 }
+
+body::after {
+    content: '';
+    position: absolute;
+    inset: 0;               
+    background: url('https://images.rawpixel.com/image_png_social_landscape/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjExMTEtMDEyYS5wbmc.png?s=DWnDAX1J1kbB5bb8yp7HXgictgnDdvHPL5FQpRYK_s8') repeat;
+    opacity: 0.03;          
+    pointer-events: none;   
+    z-index: 9999;
+}          
 
 ::-webkit-scrollbar{ 
     width:3px; 
@@ -29,6 +45,7 @@ body{
 }
 
 .navbar{
+  z-index: 100;
   position:fixed; 
   top:0; 
   left:0; 
@@ -40,6 +57,7 @@ body{
   padding:0 25px;
   background:var(--clr-dark); 
   color:var(--clr-light);
+  
 }
 #navigations{ 
     display:flex; 
@@ -231,24 +249,58 @@ body{
   width:49%; 
   height:800px; 
   position:relative; 
-  z-index:-1;
+  /* z-index:-1; */
+  overflow: hidden;
+  cursor: none;
 }
+
 #image_1{
+  border-radius: 12px;
   width:100%; 
   height:100%; 
   object-fit:cover; 
   border-radius:10px;
+  transition: 200ms ease-in-out;
 }
+#image_1:hover{
+    transform: scale(105%);
+}
+
 
 .image_container::after{
   content:''; 
+  z-index: 2;
   position:absolute; 
   inset:0;
   background:var(--clr-light); 
   mix-blend-mode:overlay;
   border-radius:12px; 
   pointer-events:none;
+  /* opacity: 1; */
 }
+
+.image_container::before{
+    content:'Damn Sybau';
+    font-size: 5em;
+    font-family: Arial, Helvetica, sans-serif;
+    color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    z-index: 1;
+    position:absolute; 
+    inset:0;
+    background:var(--clr-grey); 
+    /* mix-blend-mode:overlay; */
+    border-radius:12px; 
+    pointer-events:none;
+    opacity: 0;
+    transition: opacity 200ms ease;
+}
+.image_container:hover::before{
+    opacity: 1;
+}
+
 
 .skill_work{ 
     display:flex; 
