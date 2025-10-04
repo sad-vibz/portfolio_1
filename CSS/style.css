@@ -36,7 +36,7 @@ body::after {
     background: url('https://images.rawpixel.com/image_png_social_landscape/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjExMTEtMDEyYS5wbmc.png?s=DWnDAX1J1kbB5bb8yp7HXgictgnDdvHPL5FQpRYK_s8') repeat;
     opacity: 0.03;          
     pointer-events: none;   
-    z-index: 9999;
+    z-index: 1000;
 }          
 
 ::-webkit-scrollbar{ 
@@ -754,4 +754,5 @@ body::after {
         all: unset;
     }
 } */
+
 
